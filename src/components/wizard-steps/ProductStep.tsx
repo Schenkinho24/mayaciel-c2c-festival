@@ -20,7 +20,7 @@ const products = [{
 }, {
   id: "tequila-reposado",
   name: "Tequila Reposado",
-  description: "Ausgereift mit Vanille- und Eichennoten, samtig im Abgang.",
+  description: "Im Rumfass ausgereift.\nAgave. Schokolade. Karamell.",
   price: "39,90 €"
 }, {
   id: "paloma-package",
