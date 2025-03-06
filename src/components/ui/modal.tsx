@@ -38,6 +38,17 @@ export function Modal({
           )}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Close button */}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onClose}
+            className="absolute top-4 right-4 text-white hover:bg-black/20 z-10"
+          >
+            <X className="h-5 w-5" />
+            <span className="sr-only">Schließen</span>
+          </Button>
+          
           <div className="overflow-auto">
             {children}
           </div>
