@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,6 +16,9 @@ export type FormData = {
   city: string;
   country: string;
   product: string;
+  quantities?: {
+    [productName: string]: number;
+  };
 };
 
 const initialFormData: FormData = {
@@ -27,6 +29,7 @@ const initialFormData: FormData = {
   city: '',
   country: 'Deutschland',
   product: '',
+  quantities: {},
 };
 
 const TequilaWizard = () => {

@@ -11,6 +11,12 @@ interface SummaryStepProps {
 }
 
 const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
+  // Get the selected product quantity or default to 1 for backward compatibility
+  const selectedProductQuantity = 
+    formData.quantities && formData.quantities[formData.product] 
+      ? formData.quantities[formData.product] 
+      : 1;
+
   return (
     <div className="space-y-6">
       <div className="text-center mb-6">
@@ -83,6 +89,8 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           <div className="grid grid-cols-2 gap-y-2">
             <span className="text-gray-600">Produkt:</span>
             <span>{formData.product}</span>
+            <span className="text-gray-600">Menge:</span>
+            <span>{selectedProductQuantity} Flaschen</span>
           </div>
         </div>
       </div>
