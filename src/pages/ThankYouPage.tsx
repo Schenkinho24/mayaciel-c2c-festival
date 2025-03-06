@@ -79,7 +79,7 @@ const ThankYouPage: React.FC = () => {
 
             <div className="rounded-lg p-4 md:p-5 bg-white">
               <div className="mb-2">
-                <h3 className="font-medium text-base md:text-lg text-tequila-dark">Persönliche Daten</h3>
+                <h3 className="text-base md:text-lg text-tequila-primary font-bold">Persönliche Daten</h3>
               </div>
               <Separator className="my-2 bg-tequila-secondary" />
               <div className="grid grid-cols-2 gap-y-2">
