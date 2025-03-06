@@ -71,7 +71,9 @@ export function Modal({
           </Button>
           
           <div className="flex-1 overflow-y-auto">
-            {children}
+            <div className="px-4 sm:px-6 py-4 break-words">
+              {children}
+            </div>
           </div>
         </div>
       </div>
