@@ -50,7 +50,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
   return <div className="space-y-4">
       <div className="text-center mb-6">
         
-        <p className="text-tequila-dark/80 text-sm md:text-base">Bitte wählen Sie die gewünschten Produkte und Mengen.</p>
+        
       </div>
 
       <div className="space-y-4 pb-4">
