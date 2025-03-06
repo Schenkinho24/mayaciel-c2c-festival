@@ -2,7 +2,6 @@
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FormData } from '../TequilaWizard';
 
 interface AddressStepProps {
@@ -10,13 +9,14 @@ interface AddressStepProps {
   updateFormData: (data: Partial<FormData>) => void;
 }
 
-const countries = [
-  "Deutschland",
-  "Österreich",
-  "Schweiz",
-];
-
 const AddressStep: React.FC<AddressStepProps> = ({ formData, updateFormData }) => {
+  // Set Deutschland as default country if not already set
+  React.useEffect(() => {
+    if (!formData.country) {
+      updateFormData({ country: "Deutschland" });
+    }
+  }, [formData.country, updateFormData]);
+
   return (
     <div className="space-y-4">
       <div className="text-center mb-6">
@@ -57,25 +57,6 @@ const AddressStep: React.FC<AddressStepProps> = ({ formData, updateFormData }) =
               required
             />
           </div>
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="country">Land</Label>
-          <Select 
-            value={formData.country} 
-            onValueChange={(value) => updateFormData({ country: value })}
-          >
-            <SelectTrigger id="country">
-              <SelectValue placeholder="Land auswählen" />
-            </SelectTrigger>
-            <SelectContent>
-              {countries.map((country) => (
-                <SelectItem key={country} value={country}>
-                  {country}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
         </div>
       </div>
     </div>
