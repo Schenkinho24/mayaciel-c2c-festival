@@ -4,10 +4,12 @@ import TequilaHeader from '@/components/TequilaHeader';
 import TequilaWizard from '@/components/TequilaWizard';
 import { Button } from '@/components/ui/button';
 import { Modal } from '@/components/ui/modal';
+
 const Index = () => {
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   const openWizard = () => setIsWizardOpen(true);
   const closeWizard = () => setIsWizardOpen(false);
+
   return <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
       <TequilaHeader />
       
@@ -37,10 +39,11 @@ const Index = () => {
             Mayaciel Spirits GmbH. Alle Rechte vorbehalten.
           </p>
           <p className="text-xs mt-2 text-tequila-light">
-            Verantwortungsvoller Genuss. Nicht für Personen unter 18 Jahren.
+            Verantwortungsvoller Genuss.<span className="md:hidden"><br /></span> Nicht für Personen unter 18 Jahren.
           </p>
         </div>
       </footer>
     </div>;
 };
+
 export default Index;
