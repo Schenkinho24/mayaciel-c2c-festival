@@ -42,7 +42,7 @@ const ThankYouPage: React.FC = () => {
       <main className="flex-1 container px-4 py-8 md:py-12 mx-auto">
         <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-sm p-6 md:p-8 animate-fade-in">
           <div className="text-center mb-8">
-            <h1 className="text-xl md:text-2xl font-bold text-tequila-dark mb-4">Vielen Dank!</h1>
+            <h1 className="text-xl md:text-2xl font-bold mb-4 text-tequila-primary">Vielen Dank!</h1>
             <p className="text-sm md:text-base text-tequila-dark/80 break-words">
               Vielen Dank für Deine Bestellung bei MAYACIEL. Der Tequila geht direkt am Montag in den Versand.
               <br /><br />
