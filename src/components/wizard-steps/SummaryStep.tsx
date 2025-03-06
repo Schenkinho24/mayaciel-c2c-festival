@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { FormData } from '../TequilaWizard';
-import { Edit } from 'lucide-react';
+import { Edit, EuroIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
@@ -10,13 +10,30 @@ interface SummaryStepProps {
   onEdit: (step: number) => void;
 }
 
+// Product prices mapping
+const productPrices: { [key: string]: number } = {
+  "Tequila Blanco": 34.90,
+  "Tequila Rosa": 36.90,
+  "Tequila Reposado": 39.90,
+  "Paloma Package": 42.90,
+};
+
 const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
   // Get selected products with quantities
   const selectedProducts = formData.quantities ? 
     Object.entries(formData.quantities)
       .filter(([_, quantity]) => quantity > 0)
-      .map(([productName, quantity]) => ({ name: productName, quantity })) 
+      .map(([productName, quantity]) => ({ 
+        name: productName, 
+        quantity,
+        price: productPrices[productName] || 0
+      })) 
     : [];
+    
+  // Calculate total sum
+  const totalSum = selectedProducts.reduce((sum, product) => {
+    return sum + (product.price * product.quantity);
+  }, 0);
 
   return (
     <div className="space-y-6">
@@ -89,12 +106,25 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           <Separator className="my-2 bg-tequila-secondary" />
           {selectedProducts.length > 0 ? (
             <div className="space-y-2">
-              {selectedProducts.map(({ name, quantity }) => (
+              {selectedProducts.map(({ name, quantity, price }) => (
                 <div key={name} className="grid grid-cols-2 gap-y-1">
                   <span className="text-tequila-dark/70">{name}:</span>
-                  <span className="text-tequila-primary font-medium">{quantity} Flaschen</span>
+                  <div className="flex justify-between">
+                    <span className="text-tequila-primary font-medium">{quantity} Flaschen</span>
+                    <span className="text-tequila-dark">{(price * quantity).toFixed(2)} €</span>
+                  </div>
                 </div>
               ))}
+              
+              <Separator className="my-3 bg-tequila-secondary" />
+              
+              <div className="grid grid-cols-2 gap-y-1">
+                <span className="text-tequila-dark font-medium">Gesamtsumme:</span>
+                <div className="flex items-center justify-end">
+                  <EuroIcon className="h-4 w-4 mr-1 text-tequila-primary" />
+                  <span className="text-tequila-primary font-bold text-lg">{totalSum.toFixed(2)} €</span>
+                </div>
+              </div>
             </div>
           ) : (
             <p className="text-tequila-dark/70">Keine Produkte ausgewählt</p>
