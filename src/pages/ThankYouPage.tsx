@@ -99,7 +99,7 @@ const ThankYouPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+            <div className="rounded-lg p-4 md:p-5 bg-white">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Adresse</h3>
               </div>
