@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -34,7 +33,11 @@ const initialFormData: FormData = {
   quantities: {},
 };
 
-const TequilaWizard = () => {
+interface TequilaWizardProps {
+  onComplete?: () => void;
+}
+
+const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -133,6 +136,12 @@ const TequilaWizard = () => {
       
       setFormData(initialFormData);
       setStep(1);
+      
+      if (onComplete) {
+        setTimeout(() => {
+          onComplete();
+        }, 1500); // Give time for the user to see the success message
+      }
     } catch (error) {
       console.error('Error in submit handler:', error);
       toast({

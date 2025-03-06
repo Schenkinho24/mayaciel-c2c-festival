@@ -1,9 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import TequilaHeader from '@/components/TequilaHeader';
 import TequilaWizard from '@/components/TequilaWizard';
+import { Button } from '@/components/ui/button';
+import { Modal } from '@/components/ui/modal';
 
 const Index = () => {
+  const [isWizardOpen, setIsWizardOpen] = useState(false);
+
+  const openWizard = () => setIsWizardOpen(true);
+  const closeWizard = () => setIsWizardOpen(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
       <TequilaHeader />
@@ -13,13 +20,25 @@ const Index = () => {
           <h2 className="text-2xl md:text-3xl font-bold text-tequila-primary mb-4">
             Wählen Sie Ihren Premium Tequila
           </h2>
-          <p className="text-tequila-dark max-w-2xl mx-auto">
-            Füllen Sie das Formular aus, um Ihren persönlichen Tequila-Geschmacksweg zu beginnen. 
-            In nur wenigen Schritten erhalten Sie Zugang zu unserer exklusiven Kollektion.
+          <p className="text-tequila-dark max-w-2xl mx-auto mb-8">
+            Entdecken Sie unsere exklusive Kollektion von Premium Tequilas und beginnen Sie Ihren persönlichen Geschmacksweg.
           </p>
+          
+          <Button 
+            onClick={openWizard}
+            className="bg-tequila-primary hover:bg-tequila-primary/90 text-white font-medium px-6 py-2 rounded-md"
+          >
+            Infos eintragen
+          </Button>
         </div>
         
-        <TequilaWizard />
+        <Modal 
+          isOpen={isWizardOpen} 
+          onClose={closeWizard}
+          title="Tequila Auswahl"
+        >
+          <TequilaWizard onComplete={closeWizard} />
+        </Modal>
       </main>
       
       <footer className="bg-tequila-primary text-white py-6">
