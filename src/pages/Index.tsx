@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import TequilaHeader from '@/components/TequilaHeader';
 import TequilaWizard from '@/components/TequilaWizard';
@@ -17,7 +18,7 @@ const Index = () => {
             Entdecken Sie unsere exklusive Kollektion von Premium Tequilas und beginnen Sie Ihren persönlichen Geschmacksweg.
           </p>
           
-          <Button onClick={openWizard} className="bg-tequila-primary hover:bg-tequila-primary/90 text-white px-6 rounded-md mb-8 font-medium py-0">Hier geht's zur Tequila Bestellung!</Button>
+          <Button onClick={openWizard} className="bg-[#411701] hover:bg-[#411701]/90 text-white px-6 rounded-md mb-8 font-medium py-0">Hier geht's zur Tequila Bestellung!</Button>
           
           {/* Image placeholder below the button */}
           <div className="w-full max-w-3xl mx-auto mt-4 rounded-lg overflow-hidden shadow-md">
