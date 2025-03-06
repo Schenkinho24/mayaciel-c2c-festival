@@ -27,7 +27,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
       <div className="space-y-6">
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
+            <h3 className="font-medium text-lg text-tequila-primary">Persönliche Daten</h3>
             <Button 
               variant="ghost" 
               size="sm"
@@ -49,7 +49,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
 
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
+            <h3 className="font-medium text-lg text-tequila-primary">Adresse</h3>
             <Button 
               variant="ghost" 
               size="sm"
@@ -75,7 +75,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
 
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
+            <h3 className="font-medium text-lg text-tequila-primary">Produktauswahl</h3>
             <Button 
               variant="ghost" 
               size="sm"
@@ -92,7 +92,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
               {selectedProducts.map(({ name, quantity }) => (
                 <div key={name} className="grid grid-cols-2 gap-y-1">
                   <span className="text-tequila-dark/70">{name}:</span>
-                  <span className="text-tequila-dark">{quantity} Flaschen</span>
+                  <span className="text-tequila-primary font-medium">{quantity} Flaschen</span>
                 </div>
               ))}
             </div>

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,7 +44,6 @@ const TequilaWizard = () => {
   };
 
   const nextStep = () => {
-    // Validate current step
     if (step === 1) {
       if (!formData.name || !formData.email) {
         toast({
@@ -55,7 +53,6 @@ const TequilaWizard = () => {
         });
         return;
       }
-      // Basic email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(formData.email)) {
         toast({
@@ -75,7 +72,6 @@ const TequilaWizard = () => {
         return;
       }
     } else if (step === 3) {
-      // Check if at least one product has a quantity greater than 0
       const hasSelectedProducts = formData.quantities && 
         Object.values(formData.quantities).some(quantity => quantity > 0);
       
@@ -104,7 +100,6 @@ const TequilaWizard = () => {
     try {
       setIsSubmitting(true);
       
-      // Prepare data for Supabase (match database column names)
       const orderData = {
         name: formData.name,
         email: formData.email,
@@ -115,7 +110,6 @@ const TequilaWizard = () => {
         products: formData.quantities
       };
       
-      // Insert data into the tequila_orders table
       const { error } = await supabase
         .from('tequila_orders')
         .insert([orderData]);
@@ -130,14 +124,12 @@ const TequilaWizard = () => {
         return;
       }
       
-      // Success message and reset form
       toast({
         title: "Vielen Dank!",
         description: "Ihre Auswahl wurde erfolgreich übermittelt.",
       });
       console.log("Form submitted to database:", orderData);
       
-      // Reset form after successful submission
       setFormData(initialFormData);
       setStep(1);
     } catch (error) {
@@ -170,7 +162,7 @@ const TequilaWizard = () => {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <Card className="border-tequila-primary bg-white shadow-lg overflow-hidden">
-        <div className="bg-tequila-dark text-tequila-light px-6 py-4">
+        <div className="bg-tequila-primary text-white px-6 py-4">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">
               {step === 1 && "Persönliche Daten"}
@@ -182,9 +174,9 @@ const TequilaWizard = () => {
               Schritt {step} von 4
             </div>
           </div>
-          <div className="w-full bg-tequila-secondary/30 h-1 mt-4 rounded-full overflow-hidden">
+          <div className="w-full bg-tequila-light/30 h-1 mt-4 rounded-full overflow-hidden">
             <div 
-              className="bg-tequila-primary h-full transition-all duration-300 ease-in-out"
+              className="bg-white h-full transition-all duration-300 ease-in-out"
               style={{ width: `${(step / 4) * 100}%` }}
             ></div>
           </div>
@@ -198,7 +190,7 @@ const TequilaWizard = () => {
               <Button 
                 onClick={prevStep}
                 variant="outline"
-                className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10"
+                className="border-tequila-primary text-tequila-primary hover:bg-tequila-primary/10"
                 disabled={isSubmitting}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -208,7 +200,7 @@ const TequilaWizard = () => {
             {step < 4 ? (
               <Button 
                 onClick={nextStep}
-                className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-tequila-light"
+                className="ml-auto bg-tequila-primary hover:bg-tequila-primary/90 text-white"
               >
                 Weiter
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -216,7 +208,7 @@ const TequilaWizard = () => {
             ) : (
               <Button 
                 onClick={handleSubmit}
-                className="ml-auto bg-tequila-primary hover:bg-tequila-primary/90 text-tequila-light"
+                className="ml-auto bg-tequila-primary hover:bg-tequila-primary/90 text-white"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}

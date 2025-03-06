@@ -75,8 +75,8 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className="font-medium">{product.name}</span>
-                <span className="ml-auto font-semibold text-tequila-dark">{product.price}</span>
+                <span className={`font-medium ${isSelected ? 'text-tequila-primary' : 'text-tequila-dark'}`}>{product.name}</span>
+                <span className="ml-auto font-semibold text-tequila-primary">{product.price}</span>
               </div>
               <p className="text-tequila-dark/80 mt-2">{product.description}</p>
               
@@ -85,7 +85,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
                   type="button"
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark"
+                  className="h-8 w-8 rounded-full border-tequila-primary text-tequila-primary"
                   onClick={() => handleQuantityChange(product.name, -1)}
                   disabled={quantity === 0}
                 >
@@ -99,7 +99,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
                   type="button"
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark"
+                  className="h-8 w-8 rounded-full border-tequila-primary text-tequila-primary"
                   onClick={() => handleQuantityChange(product.name, 1)}
                 >
                   <Plus className="h-4 w-4" />
