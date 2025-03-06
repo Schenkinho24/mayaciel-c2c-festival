@@ -1,19 +1,16 @@
-
 import React, { useState } from 'react';
 import TequilaHeader from '@/components/TequilaHeader';
 import TequilaWizard from '@/components/TequilaWizard';
 import { Button } from '@/components/ui/button';
 import { Modal } from '@/components/ui/modal';
-
 const Index = () => {
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   const openWizard = () => setIsWizardOpen(true);
   const closeWizard = () => setIsWizardOpen(false);
-
   return <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
       <TequilaHeader />
       
-      <main className="flex-1 container px-4 py-8 md:py-12 mx-auto">
+      <main className="flex-1 container px-4 py-8 md:py-12 mx-auto bg-white">
         <div className="max-w-4xl mx-auto mb-8 md:mb-12 text-center">
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-tequila-primary mb-3 md:mb-4">
             Welcome to the <span className="md:hidden"><br /></span>
@@ -45,5 +42,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
