@@ -69,7 +69,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
               </div>
               <p className="text-tequila-dark/80 mt-2 whitespace-pre-line text-sm sm:text-base">{product.description}</p>
               
-              <div className="flex items-center justify-start mt-4">
+              <div className="flex items-center justify-center mt-4">
                 <Button 
                   type="button" 
                   variant="outline" 
