@@ -90,7 +90,16 @@ const ThankYouPage: React.FC = () => {
               <span className="text-tequila-dark/70 text-xs md:text-sm">Name:</span>
               <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.name}</span>
               <span className="text-tequila-dark/70 text-xs md:text-sm">E-Mail:</span>
-              <span className="text-tequila-dark text-xs md:text-sm overflow-wrap-anywhere hyphens-auto" style={{ wordBreak: 'break-word' }}>{formData.email}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-words" style={{ 
+                wordBreak: 'break-all', 
+                overflowWrap: 'break-word', 
+                WebkitHyphens: 'auto', 
+                msHyphens: 'auto',
+                hyphens: 'auto',
+                maxWidth: '100%'
+              }}>
+                {formData.email}
+              </span>
             </div>
           </div>
 
