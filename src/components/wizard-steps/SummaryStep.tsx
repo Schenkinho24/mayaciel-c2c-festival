@@ -38,13 +38,13 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
   return (
     <div className="space-y-6">
       <div className="text-center mb-6">
-        <p className="text-tequila-dark">Bitte überprüfen Sie Ihre Angaben vor dem Absenden.</p>
+        <p className="text-tequila-dark text-sm md:text-base">Bitte überprüfen Sie Ihre Angaben vor dem Absenden.</p>
       </div>
 
       <div className="space-y-6">
         <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
+            <h3 className="font-medium text-base md:text-lg text-tequila-dark">Produktauswahl</h3>
             <Button 
               variant="ghost" 
               size="icon"
@@ -60,28 +60,28 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
             <div className="space-y-3">
               {selectedProducts.map(({ name, quantity, price }) => (
                 <div key={name} className="flex justify-between items-center">
-                  <div className="text-tequila-dark/70">{name}: {quantity}</div>
-                  <div className="text-tequila-dark font-medium">{(price * quantity).toFixed(2)} €</div>
+                  <div className="text-tequila-dark/70 text-xs md:text-sm">{name}: {quantity}</div>
+                  <div className="text-tequila-dark font-medium text-xs md:text-sm">{(price * quantity).toFixed(2)} €</div>
                 </div>
               ))}
               
               <Separator className="my-3 bg-tequila-secondary" />
               
               <div className="flex justify-between items-center">
-                <span className="text-tequila-dark font-medium">Gesamtsumme:</span>
-                <div className="flex items-center text-tequila-primary font-bold text-lg">
+                <span className="text-tequila-dark font-medium text-sm md:text-base">Gesamtsumme:</span>
+                <div className="flex items-center text-tequila-primary font-bold text-base md:text-lg">
                   {totalSum.toFixed(2)} €
                 </div>
               </div>
             </div>
           ) : (
-            <p className="text-tequila-dark/70">Keine Produkte ausgewählt</p>
+            <p className="text-tequila-dark/70 text-xs md:text-sm">Keine Produkte ausgewählt</p>
           )}
         </div>
 
         <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
+            <h3 className="font-medium text-base md:text-lg text-tequila-dark">Persönliche Daten</h3>
             <Button 
               variant="ghost" 
               size="icon"
@@ -94,16 +94,16 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
           <div className="grid grid-cols-2 gap-y-2">
-            <span className="text-tequila-dark/70">Name:</span>
-            <span className="text-tequila-dark">{formData.name}</span>
-            <span className="text-tequila-dark/70">E-Mail:</span>
-            <span className="text-tequila-dark">{formData.email}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">Name:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.name}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">E-Mail:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.email}</span>
           </div>
         </div>
 
         <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
+            <h3 className="font-medium text-base md:text-lg text-tequila-dark">Adresse</h3>
             <Button 
               variant="ghost" 
               size="icon"
@@ -116,14 +116,14 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
           <div className="grid grid-cols-2 gap-y-2">
-            <span className="text-tequila-dark/70">Straße:</span>
-            <span className="text-tequila-dark">{formData.street}</span>
-            <span className="text-tequila-dark/70">PLZ:</span>
-            <span className="text-tequila-dark">{formData.zipCode}</span>
-            <span className="text-tequila-dark/70">Stadt:</span>
-            <span className="text-tequila-dark">{formData.city}</span>
-            <span className="text-tequila-dark/70">Land:</span>
-            <span className="text-tequila-dark">{formData.country}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">Straße:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.street}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">PLZ:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.zipCode}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">Stadt:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.city}</span>
+            <span className="text-tequila-dark/70 text-xs md:text-sm">Land:</span>
+            <span className="text-tequila-dark text-xs md:text-sm">{formData.country}</span>
           </div>
         </div>
       </div>
