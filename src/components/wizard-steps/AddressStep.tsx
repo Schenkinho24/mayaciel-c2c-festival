@@ -1,14 +1,11 @@
-
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FormData } from '../wizard/types';
-
 interface AddressStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
-
 const AddressStep: React.FC<AddressStepProps> = ({
   formData,
   updateFormData
@@ -21,10 +18,9 @@ const AddressStep: React.FC<AddressStepProps> = ({
       });
     }
   }, [formData.country, updateFormData]);
-  
   return <div className="space-y-4">
       <div className="text-center mb-6">
-        <p className="text-tequila-dark text-sm md:text-base">Bitte geben Sie Ihre Lieferadresse an.</p>
+        
       </div>
 
       <div className="space-y-4">
@@ -53,5 +49,4 @@ const AddressStep: React.FC<AddressStepProps> = ({
       </div>
     </div>;
 };
-
 export default AddressStep;
