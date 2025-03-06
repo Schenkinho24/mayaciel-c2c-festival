@@ -16,6 +16,7 @@ const productPrices: {
   "Tequila Reposado": 39.90,
   "Paloma Package": 42.90
 };
+
 const ThankYouPage: React.FC = () => {
   const location = useLocation();
   const formData = location.state?.formData as FormData | undefined;
@@ -70,7 +71,7 @@ const ThankYouPage: React.FC = () => {
                   
                   <div className="flex justify-between items-center">
                     <span className="text-tequila-dark font-medium text-sm md:text-base">Gesamtsumme:</span>
-                    <div className="flex items-center text-tequila-primary font-bold text-base md:text-lg">
+                    <div className="flex items-center text-tequila-dark text-base md:text-lg">
                       {totalSum.toFixed(2)} €
                     </div>
                   </div>
