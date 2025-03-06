@@ -38,18 +38,6 @@ export function Modal({
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between p-4 bg-tequila-dark text-white">
-            {title && <h2 className="text-xl font-semibold">{title}</h2>}
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              onClick={onClose}
-              className="ml-auto text-white hover:bg-tequila-dark/80"
-            >
-              <X className="h-5 w-5" />
-              <span className="sr-only">Schließen</span>
-            </Button>
-          </div>
           <div className="overflow-auto">
             {children}
           </div>
