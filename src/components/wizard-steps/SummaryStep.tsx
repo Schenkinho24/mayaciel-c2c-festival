@@ -44,59 +44,11 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
       <div className="space-y-6">
         <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => onEdit(1)}
-              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
-            >
-              <Edit className="h-4 w-4 mr-1" />
-              Bearbeiten
-            </Button>
-          </div>
-          <Separator className="my-2 bg-tequila-secondary" />
-          <div className="grid grid-cols-2 gap-y-2">
-            <span className="text-tequila-dark/70">Name:</span>
-            <span className="text-tequila-dark">{formData.name}</span>
-            <span className="text-tequila-dark/70">E-Mail:</span>
-            <span className="text-tequila-dark">{formData.email}</span>
-          </div>
-        </div>
-
-        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => onEdit(2)}
-              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
-            >
-              <Edit className="h-4 w-4 mr-1" />
-              Bearbeiten
-            </Button>
-          </div>
-          <Separator className="my-2 bg-tequila-secondary" />
-          <div className="grid grid-cols-2 gap-y-2">
-            <span className="text-tequila-dark/70">Straße:</span>
-            <span className="text-tequila-dark">{formData.street}</span>
-            <span className="text-tequila-dark/70">PLZ:</span>
-            <span className="text-tequila-dark">{formData.zipCode}</span>
-            <span className="text-tequila-dark/70">Stadt:</span>
-            <span className="text-tequila-dark">{formData.city}</span>
-            <span className="text-tequila-dark/70">Land:</span>
-            <span className="text-tequila-dark">{formData.country}</span>
-          </div>
-        </div>
-
-        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
-          <div className="flex justify-between items-center mb-2">
             <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
             <Button 
               variant="ghost" 
               size="sm"
-              onClick={() => onEdit(3)}
+              onClick={() => onEdit(1)}
               className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
             >
               <Edit className="h-4 w-4 mr-1" />
@@ -125,6 +77,54 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           ) : (
             <p className="text-tequila-dark/70">Keine Produkte ausgewählt</p>
           )}
+        </div>
+
+        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => onEdit(2)}
+              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
+            >
+              <Edit className="h-4 w-4 mr-1" />
+              Bearbeiten
+            </Button>
+          </div>
+          <Separator className="my-2 bg-tequila-secondary" />
+          <div className="grid grid-cols-2 gap-y-2">
+            <span className="text-tequila-dark/70">Name:</span>
+            <span className="text-tequila-dark">{formData.name}</span>
+            <span className="text-tequila-dark/70">E-Mail:</span>
+            <span className="text-tequila-dark">{formData.email}</span>
+          </div>
+        </div>
+
+        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+          <div className="flex justify-between items-center mb-2">
+            <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              onClick={() => onEdit(3)}
+              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
+            >
+              <Edit className="h-4 w-4 mr-1" />
+              Bearbeiten
+            </Button>
+          </div>
+          <Separator className="my-2 bg-tequila-secondary" />
+          <div className="grid grid-cols-2 gap-y-2">
+            <span className="text-tequila-dark/70">Straße:</span>
+            <span className="text-tequila-dark">{formData.street}</span>
+            <span className="text-tequila-dark/70">PLZ:</span>
+            <span className="text-tequila-dark">{formData.zipCode}</span>
+            <span className="text-tequila-dark/70">Stadt:</span>
+            <span className="text-tequila-dark">{formData.city}</span>
+            <span className="text-tequila-dark/70">Land:</span>
+            <span className="text-tequila-dark">{formData.country}</span>
+          </div>
         </div>
       </div>
     </div>

@@ -49,6 +49,18 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
 
   const nextStep = () => {
     if (step === 1) {
+      const hasSelectedProducts = formData.quantities && 
+        Object.values(formData.quantities).some(quantity => quantity > 0);
+      
+      if (!hasSelectedProducts) {
+        toast({
+          title: "Keine Auswahl",
+          description: "Bitte wählen Sie mindestens ein Produkt aus.",
+          variant: "destructive",
+        });
+        return;
+      }
+    } else if (step === 2) {
       if (!formData.name || !formData.email) {
         toast({
           title: "Fehlende Angaben",
@@ -66,23 +78,11 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
         });
         return;
       }
-    } else if (step === 2) {
+    } else if (step === 3) {
       if (!formData.street || !formData.zipCode || !formData.city) {
         toast({
           title: "Fehlende Angaben",
           description: "Bitte füllen Sie alle Pflichtfelder aus.",
-          variant: "destructive",
-        });
-        return;
-      }
-    } else if (step === 3) {
-      const hasSelectedProducts = formData.quantities && 
-        Object.values(formData.quantities).some(quantity => quantity > 0);
-      
-      if (!hasSelectedProducts) {
-        toast({
-          title: "Keine Auswahl",
-          description: "Bitte wählen Sie mindestens ein Produkt aus.",
           variant: "destructive",
         });
         return;
@@ -157,11 +157,11 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
   const renderStep = () => {
     switch (step) {
       case 1:
-        return <PersonalInfoStep formData={formData} updateFormData={updateFormData} />;
-      case 2:
-        return <AddressStep formData={formData} updateFormData={updateFormData} />;
-      case 3:
         return <ProductStep formData={formData} updateFormData={updateFormData} />;
+      case 2:
+        return <PersonalInfoStep formData={formData} updateFormData={updateFormData} />;
+      case 3:
+        return <AddressStep formData={formData} updateFormData={updateFormData} />;
       case 4:
         return <SummaryStep formData={formData} onEdit={jumpToStep} />;
       default:
@@ -174,9 +174,9 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
       <div className="bg-tequila-dark text-white px-6 py-4">
         <div className="flex justify-between items-center">
           <h2 className="text-xl font-semibold">
-            {step === 1 && "Persönliche Daten"}
-            {step === 2 && "Adresse"}
-            {step === 3 && "Produkt Auswahl"}
+            {step === 1 && "Produkt Auswahl"}
+            {step === 2 && "Persönliche Daten"}
+            {step === 3 && "Adresse"}
             {step === 4 && "Zusammenfassung"}
           </h2>
           <div className="text-sm">
