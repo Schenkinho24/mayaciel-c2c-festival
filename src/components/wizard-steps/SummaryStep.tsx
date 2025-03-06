@@ -27,12 +27,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
       <div className="space-y-6">
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-primary">Persönliche Daten</h3>
+            <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => onEdit(1)}
-              className="text-tequila-primary hover:text-tequila-primary/90 hover:bg-tequila-primary/10"
+              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
             >
               <Edit className="h-4 w-4 mr-1" />
               Bearbeiten
@@ -49,12 +49,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
 
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-primary">Adresse</h3>
+            <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => onEdit(2)}
-              className="text-tequila-primary hover:text-tequila-primary/90 hover:bg-tequila-primary/10"
+              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
             >
               <Edit className="h-4 w-4 mr-1" />
               Bearbeiten
@@ -75,12 +75,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
 
         <div className="bg-tequila-neutral rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="font-medium text-lg text-tequila-primary">Produktauswahl</h3>
+            <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => onEdit(3)}
-              className="text-tequila-primary hover:text-tequila-primary/90 hover:bg-tequila-primary/10"
+              className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
             >
               <Edit className="h-4 w-4 mr-1" />
               Bearbeiten
