@@ -1,21 +1,18 @@
-
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { FormData } from '../wizard/types';
-
 interface PersonalInfoStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
-
 const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
   formData,
   updateFormData
 }) => {
   return <div className="space-y-4">
       <div className="text-center mb-6">
-        <p className="text-tequila-dark text-sm md:text-base">Bitte geben Sie Ihre persönlichen Daten ein.</p>
+        
       </div>
 
       <div className="space-y-4">
@@ -35,5 +32,4 @@ const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
       </div>
     </div>;
 };
-
 export default PersonalInfoStep;
