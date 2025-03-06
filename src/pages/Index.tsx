@@ -25,7 +25,7 @@ const Index = () => {
       <footer className="bg-tequila-primary text-white py-6">
         <div className="container px-4 mx-auto text-center">
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Mayaciel Spirits GmbH. Alle Rechte vorbehalten.
+            Mayaciel Spirits GmbH. Alle Rechte vorbehalten.
           </p>
           <p className="text-xs mt-2 text-tequila-light">
             Verantwortungsvoller Genuss. Nicht für Personen unter 18 Jahren.
