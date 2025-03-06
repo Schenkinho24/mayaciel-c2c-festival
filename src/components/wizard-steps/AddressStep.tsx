@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -20,32 +21,33 @@ const AddressStep: React.FC<AddressStepProps> = ({
       });
     }
   }, [formData.country, updateFormData]);
+  
   return <div className="space-y-4">
       <div className="text-center mb-6">
-        
+        <p className="text-tequila-dark text-sm md:text-base">Bitte geben Sie Ihre Lieferadresse an.</p>
       </div>
 
       <div className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="street">Straße und Hausnummer <span className="text-red-500">*</span></Label>
+          <Label htmlFor="street" className="text-sm md:text-base">Straße und Hausnummer <span className="text-red-500">*</span></Label>
           <Input id="street" placeholder="Musterstraße 123" value={formData.street} onChange={e => updateFormData({
           street: e.target.value
-        })} required />
+        })} required className="text-sm md:text-base" />
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="zipCode">Postleitzahl <span className="text-red-500">*</span></Label>
+            <Label htmlFor="zipCode" className="text-sm md:text-base">Postleitzahl <span className="text-red-500">*</span></Label>
             <Input id="zipCode" placeholder="12345" value={formData.zipCode} onChange={e => updateFormData({
             zipCode: e.target.value
-          })} required />
+          })} required className="text-sm md:text-base" />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="city">Stadt <span className="text-red-500">*</span></Label>
+            <Label htmlFor="city" className="text-sm md:text-base">Stadt <span className="text-red-500">*</span></Label>
             <Input id="city" placeholder="Berlin" value={formData.city} onChange={e => updateFormData({
             city: e.target.value
-          })} required />
+          })} required className="text-sm md:text-base" />
           </div>
         </div>
       </div>

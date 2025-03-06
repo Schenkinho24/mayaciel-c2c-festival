@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FormData } from '../wizard/types';
 import { Plus, Minus } from "lucide-react";
@@ -53,7 +54,8 @@ const ProductStep: React.FC<ProductStepProps> = ({
 
   return <div className="space-y-4">
       <div className="text-center mb-6">
-        
+        <h3 className="text-tequila-dark font-medium text-base md:text-lg mb-2">Wählen Sie Ihre Produkte</h3>
+        <p className="text-tequila-dark/80 text-sm md:text-base">Bitte wählen Sie die gewünschten Produkte und Mengen.</p>
       </div>
 
       <div className="space-y-4 pb-4">
@@ -62,12 +64,12 @@ const ProductStep: React.FC<ProductStepProps> = ({
         const isSelected = quantity > 0;
         return <div key={product.id} className={`border rounded-lg p-3 sm:p-4 transition-all ${isSelected ? 'border-2 border-tequila-dark bg-tequila-neutral' : 'border-tequila-secondary'}`}>
               <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
-                <span className="font-bold text-tequila-primary">
+                <span className="font-bold text-tequila-primary text-sm md:text-base">
                   {product.name}
                 </span>
-                <span className="ml-auto font-semibold text-tequila-primary">{product.price}</span>
+                <span className="ml-auto font-semibold text-tequila-primary text-sm md:text-base">{product.price}</span>
               </div>
-              <p className="text-tequila-dark/80 mt-2 whitespace-pre-line text-sm sm:text-base text-center">{product.description}</p>
+              <p className="text-tequila-dark/80 mt-2 whitespace-pre-line text-xs md:text-sm text-center">{product.description}</p>
               
               <div className="flex items-center justify-center mt-4">
                 <Button type="button" variant="outline" size="icon" className="h-9 w-9 sm:h-8 sm:w-8 rounded-full border-tequila-dark text-tequila-dark touch-manipulation" onClick={() => handleQuantityChange(product.name, -1)} disabled={quantity === 0} aria-label="Reduzieren">
@@ -75,7 +77,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
                   <span className="sr-only">Reduzieren</span>
                 </Button>
                 
-                <span className="mx-3 sm:mx-4 font-medium w-8 text-center flex items-center justify-center">{quantity}</span>
+                <span className="mx-3 sm:mx-4 font-medium w-8 text-center flex items-center justify-center text-sm md:text-base">{quantity}</span>
                 
                 <Button type="button" variant="outline" size="icon" className="h-9 w-9 sm:h-8 sm:w-8 rounded-full border-tequila-dark text-tequila-dark touch-manipulation" onClick={() => handleQuantityChange(product.name, 1)} aria-label="Erhöhen">
                   <Plus className="h-4 w-4" />

@@ -24,7 +24,7 @@ const WizardNavigation: React.FC<WizardNavigationProps> = ({
         <Button 
           onClick={onPrevStep}
           variant="outline"
-          className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10"
+          className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10 text-xs md:text-sm"
           disabled={isSubmitting}
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -34,7 +34,7 @@ const WizardNavigation: React.FC<WizardNavigationProps> = ({
       {step < 4 ? (
         <Button 
           onClick={onNextStep}
-          className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
+          className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white text-xs md:text-sm"
         >
           Weiter
           <ArrowRight className="ml-2 h-4 w-4" />
@@ -42,7 +42,7 @@ const WizardNavigation: React.FC<WizardNavigationProps> = ({
       ) : (
         <Button 
           onClick={onSubmit}
-          className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
+          className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white text-xs md:text-sm"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}

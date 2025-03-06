@@ -9,13 +9,13 @@ const WizardHeader: React.FC<WizardHeaderProps> = ({ step }) => {
   return (
     <div className="bg-tequila-dark text-white px-6 py-4">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-lg md:text-xl font-semibold">
           {step === 1 && "Produkt Auswahl"}
           {step === 2 && "Persönliche Daten"}
           {step === 3 && "Adresse"}
           {step === 4 && "Zusammenfassung"}
         </h2>
-        <div className="text-sm">
+        <div className="text-xs md:text-sm">
           <span className="block sm:inline">Schritt</span>{' '}
           <span className="block sm:inline">{step} von 4</span>
         </div>
