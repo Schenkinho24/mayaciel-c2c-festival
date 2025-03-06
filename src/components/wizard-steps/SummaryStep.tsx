@@ -47,12 +47,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
             <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
             <Button 
               variant="ghost" 
-              size="sm"
+              size="icon"
               onClick={() => onEdit(1)}
               className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
+              aria-label="Bearbeiten"
             >
-              <Edit className="h-4 w-4 mr-1" />
-              Bearbeiten
+              <Edit className="h-4 w-4" />
             </Button>
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
@@ -84,12 +84,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
             <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
             <Button 
               variant="ghost" 
-              size="sm"
+              size="icon"
               onClick={() => onEdit(2)}
               className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
+              aria-label="Bearbeiten"
             >
-              <Edit className="h-4 w-4 mr-1" />
-              Bearbeiten
+              <Edit className="h-4 w-4" />
             </Button>
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
@@ -106,12 +106,12 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
             <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
             <Button 
               variant="ghost" 
-              size="sm"
+              size="icon"
               onClick={() => onEdit(3)}
               className="text-tequila-dark hover:text-tequila-dark/90 hover:bg-tequila-dark/10"
+              aria-label="Bearbeiten"
             >
-              <Edit className="h-4 w-4 mr-1" />
-              Bearbeiten
+              <Edit className="h-4 w-4" />
             </Button>
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
