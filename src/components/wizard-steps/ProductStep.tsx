@@ -10,7 +10,7 @@ interface ProductStepProps {
 const products = [{
   id: "tequila-blanco",
   name: "Tequila Blanco",
-  description: "Blumig. Fruchtig. Zitrusnoten.",
+  description: "Aus 100% Agave hergestellt.\nBlumig. Fruchtig. Zitrusnoten.",
   price: "34,90 €"
 }, {
   id: "tequila-rosa",
