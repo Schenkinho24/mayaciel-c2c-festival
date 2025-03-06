@@ -2,10 +2,12 @@ import React from 'react';
 import { FormData } from '../wizard/types';
 import { Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 interface ProductStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
+
 const products = [{
   id: "tequila-blanco",
   name: "Tequila Blanco",
@@ -24,9 +26,10 @@ const products = [{
 }, {
   id: "paloma-package",
   name: "Paloma Package",
-  description: "Vollmundig und komplex mit Karamell- und Gewürznoten.",
+  description: "Mix Dir die perfekte Paloma im Handumdrehen zuhause!",
   price: "42,90 €"
 }];
+
 const ProductStep: React.FC<ProductStepProps> = ({
   formData,
   updateFormData
@@ -47,6 +50,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
       product: selectedProducts.join(", ")
     });
   };
+
   return <div className="space-y-4">
       <div className="text-center mb-6">
         
@@ -83,4 +87,5 @@ const ProductStep: React.FC<ProductStepProps> = ({
       </div>
     </div>;
 };
+
 export default ProductStep;
