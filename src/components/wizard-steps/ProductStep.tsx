@@ -14,7 +14,7 @@ const products = [{
 }, {
   id: "tequila-rosa",
   name: "Tequila Rosa",
-  description: "Harmonisch mit fruchtigen Aromen und sanfter Süße.",
+  description: "Im Rotweinfass veredelt.\nBeerig. Fruchtig. Trocken.",
   price: "36,90 €"
 }, {
   id: "tequila-reposado",
@@ -27,6 +27,7 @@ const products = [{
   description: "Vollmundig und komplex mit Karamell- und Gewürznoten.",
   price: "42,90 €"
 }];
+
 const ProductStep: React.FC<ProductStepProps> = ({
   formData,
   updateFormData
