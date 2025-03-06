@@ -42,7 +42,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
       </div>
 
       <div className="space-y-6">
-        <div className="bg-tequila-neutral rounded-lg p-4">
+        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
             <h3 className="font-medium text-lg text-tequila-dark">Persönliche Daten</h3>
             <Button 
@@ -64,7 +64,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           </div>
         </div>
 
-        <div className="bg-tequila-neutral rounded-lg p-4">
+        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
             <h3 className="font-medium text-lg text-tequila-dark">Adresse</h3>
             <Button 
@@ -90,7 +90,7 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           </div>
         </div>
 
-        <div className="bg-tequila-neutral rounded-lg p-4">
+        <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
           <div className="flex justify-between items-center mb-2">
             <h3 className="font-medium text-lg text-tequila-dark">Produktauswahl</h3>
             <Button 
@@ -105,24 +105,20 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
           </div>
           <Separator className="my-2 bg-tequila-secondary" />
           {selectedProducts.length > 0 ? (
-            <div className="space-y-2">
+            <div className="space-y-3">
               {selectedProducts.map(({ name, quantity, price }) => (
-                <div key={name} className="grid grid-cols-2 gap-y-1">
-                  <span className="text-tequila-dark/70">{name}:</span>
-                  <div className="flex justify-between">
-                    <span className="text-tequila-primary font-medium">{quantity} Flaschen</span>
-                    <span className="text-tequila-dark">{(price * quantity).toFixed(2)} €</span>
-                  </div>
+                <div key={name} className="flex justify-between items-center">
+                  <div className="text-tequila-dark/70">{name}: {quantity}</div>
+                  <div className="text-tequila-dark font-medium">{(price * quantity).toFixed(2)} €</div>
                 </div>
               ))}
               
               <Separator className="my-3 bg-tequila-secondary" />
               
-              <div className="grid grid-cols-2 gap-y-1">
+              <div className="flex justify-between items-center">
                 <span className="text-tequila-dark font-medium">Gesamtsumme:</span>
-                <div className="flex items-center justify-end">
-                  <EuroIcon className="h-4 w-4 mr-1 text-tequila-primary" />
-                  <span className="text-tequila-primary font-bold text-lg">{totalSum.toFixed(2)} €</span>
+                <div className="flex items-center text-tequila-primary font-bold text-lg">
+                  {totalSum.toFixed(2)} €
                 </div>
               </div>
             </div>
