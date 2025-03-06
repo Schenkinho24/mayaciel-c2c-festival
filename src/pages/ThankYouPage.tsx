@@ -55,7 +55,7 @@ const ThankYouPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+            <div className="bg-white rounded-lg p-4 md:p-5 border border-tequila-secondary">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Produktauswahl</h3>
               </div>
@@ -83,7 +83,7 @@ const ThankYouPage: React.FC = () => {
               )}
             </div>
 
-            <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+            <div className="bg-white rounded-lg p-4 md:p-5 border border-tequila-secondary">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Persönliche Daten</h3>
               </div>
@@ -105,7 +105,7 @@ const ThankYouPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+            <div className="bg-white rounded-lg p-4 md:p-5 border border-tequila-secondary">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Adresse</h3>
               </div>
