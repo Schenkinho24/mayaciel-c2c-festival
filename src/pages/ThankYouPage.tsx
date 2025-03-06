@@ -51,7 +51,7 @@ const ThankYouPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg p-4 md:p-5 bg-tequila-light">
+            <div className="rounded-lg p-4 md:p-5 bg-white">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Produktauswahl</h3>
               </div>
