@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import PersonalInfoStep from './wizard-steps/PersonalInfoStep';
 import AddressStep from './wizard-steps/AddressStep';
 import ProductStep from './wizard-steps/ProductStep';
 import SummaryStep from './wizard-steps/SummaryStep';
+import { supabase } from "@/integrations/supabase/client";
 
 export type FormData = {
   name: string;
@@ -35,6 +37,7 @@ const initialFormData: FormData = {
 const TequilaWizard = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>(initialFormData);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const updateFormData = (data: Partial<FormData>) => {
@@ -97,16 +100,56 @@ const TequilaWizard = () => {
     setStep(targetStep);
   };
 
-  const handleSubmit = () => {
-    toast({
-      title: "Vielen Dank!",
-      description: "Ihre Auswahl wurde erfolgreich übermittelt.",
-    });
-    console.log("Form submitted:", formData);
-    // Here you would typically send the data to your backend
-    // Reset form after successful submission
-    setFormData(initialFormData);
-    setStep(1);
+  const handleSubmit = async () => {
+    try {
+      setIsSubmitting(true);
+      
+      // Prepare data for Supabase (match database column names)
+      const orderData = {
+        name: formData.name,
+        email: formData.email,
+        street: formData.street,
+        zipcode: formData.zipCode,
+        city: formData.city,
+        country: formData.country,
+        products: formData.quantities
+      };
+      
+      // Insert data into the tequila_orders table
+      const { error } = await supabase
+        .from('tequila_orders')
+        .insert([orderData]);
+      
+      if (error) {
+        console.error('Error saving order:', error);
+        toast({
+          title: "Fehler",
+          description: "Es gab ein Problem bei der Übermittlung. Bitte versuchen Sie es später erneut.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
+      // Success message and reset form
+      toast({
+        title: "Vielen Dank!",
+        description: "Ihre Auswahl wurde erfolgreich übermittelt.",
+      });
+      console.log("Form submitted to database:", orderData);
+      
+      // Reset form after successful submission
+      setFormData(initialFormData);
+      setStep(1);
+    } catch (error) {
+      console.error('Error in submit handler:', error);
+      toast({
+        title: "Fehler",
+        description: "Es gab ein Problem bei der Übermittlung. Bitte versuchen Sie es später erneut.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
@@ -156,6 +199,7 @@ const TequilaWizard = () => {
                 onClick={prevStep}
                 variant="outline"
                 className="border-tequila-brown text-tequila-brown hover:bg-tequila-brown/10"
+                disabled={isSubmitting}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Zurück
@@ -173,8 +217,9 @@ const TequilaWizard = () => {
               <Button 
                 onClick={handleSubmit}
                 className="ml-auto bg-tequila-green hover:bg-tequila-green/90"
+                disabled={isSubmitting}
               >
-                Bestätigen
+                {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}
                 <Check className="ml-2 h-4 w-4" />
               </Button>
             )}
