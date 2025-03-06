@@ -15,7 +15,6 @@ const productPrices: {
   "Tequila Reposado": 39.90,
   "Paloma Package": 42.90
 };
-
 const ThankYouPage: React.FC = () => {
   const location = useLocation();
   const formData = location.state?.formData as FormData | undefined;
@@ -36,11 +35,10 @@ const ThankYouPage: React.FC = () => {
   const totalSum = selectedProducts.reduce((sum, product) => {
     return sum + product.price * product.quantity;
   }, 0);
-
   return <div className="container max-w-4xl mx-auto py-8 px-4 md:px-6 animate-fade-in">
       <div className="bg-tequila-neutral rounded-lg p-6 mb-6">
         <div className="text-center mb-8">
-          <h1 className="text-xl md:text-2xl font-bold text-tequila-dark mb-4">Vielen Dank!</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-tequila-dark mb-4">Yeehaw!</h1>
           <p className="text-sm md:text-base text-tequila-dark/80 break-words">
             Vielen Dank für Deine Bestellung bei MAYACIEL. Der Tequila geht direkt am Montag in den Versand.
             <br /><br />
@@ -126,5 +124,4 @@ const ThankYouPage: React.FC = () => {
       </div>
     </div>;
 };
-
 export default ThankYouPage;
