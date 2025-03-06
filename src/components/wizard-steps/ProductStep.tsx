@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FormData } from '../wizard/types';
 import { Plus, Minus } from "lucide-react";
@@ -68,7 +69,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
               </div>
               <p className="text-tequila-dark/80 mt-2 whitespace-pre-line text-sm sm:text-base">{product.description}</p>
               
-              <div className="flex items-center mt-4">
+              <div className="flex items-center justify-start mt-4">
                 <Button 
                   type="button" 
                   variant="outline" 
@@ -82,7 +83,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
                   <span className="sr-only">Reduzieren</span>
                 </Button>
                 
-                <span className="mx-3 sm:mx-4 font-medium w-8 text-center">{quantity}</span>
+                <span className="mx-3 sm:mx-4 font-medium w-8 text-center flex items-center justify-center">{quantity}</span>
                 
                 <Button 
                   type="button" 
