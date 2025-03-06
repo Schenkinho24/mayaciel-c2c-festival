@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FormData } from '../TequilaWizard';
 import { Plus, Minus } from "lucide-react";
@@ -28,40 +27,28 @@ const products = [
     description: "Ausgereift mit Vanille- und Eichennoten, samtig im Abgang.",
     price: "49,99 €",
   },
-  // Adding more product items to test scrolling
   {
-    id: "tequila-anejo",
-    name: "Tequila Añejo",
+    id: "paloma-package",
+    name: "Paloma Package",
     description: "Vollmundig und komplex mit Karamell- und Gewürznoten.",
     price: "59,99 €",
-  },
-  {
-    id: "tequila-extra-anejo",
-    name: "Tequila Extra Añejo",
-    description: "Luxuriös mit tiefen Holznoten und samtiger Textur.",
-    price: "89,99 €",
   },
 ];
 
 const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) => {
   const handleQuantityChange = (productName: string, change: number) => {
-    // Get current quantities or initialize if not present
     const quantities = formData.quantities || {};
     
-    // Calculate new quantity (minimum is 0)
     const currentQuantity = quantities[productName] || 0;
     const newQuantity = Math.max(0, currentQuantity + change);
     
-    // Update quantities
     const updatedQuantities = {
       ...quantities,
       [productName]: newQuantity
     };
     
-    // Update the formData with the new quantities
     updateFormData({ quantities: updatedQuantities });
     
-    // Set the product field to a comma-separated list of products with quantities > 0
     const selectedProducts = Object.entries(updatedQuantities)
       .filter(([_, qty]) => qty > 0)
       .map(([name, _]) => name);
