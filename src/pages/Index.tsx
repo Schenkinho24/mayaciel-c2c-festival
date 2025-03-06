@@ -26,10 +26,22 @@ const Index = () => {
           
           <Button 
             onClick={openWizard}
-            className="bg-tequila-primary hover:bg-tequila-primary/90 text-white font-medium px-6 py-2 rounded-md"
+            className="bg-tequila-primary hover:bg-tequila-primary/90 text-white font-medium px-6 py-2 rounded-md mb-8"
           >
             Infos eintragen
           </Button>
+          
+          {/* Image placeholder below the button */}
+          <div className="w-full max-w-3xl mx-auto mt-4 rounded-lg overflow-hidden shadow-md">
+            <img 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+              alt="Premium Tequila" 
+              className="w-full h-auto object-cover aspect-video"
+            />
+            <div className="bg-tequila-primary text-white p-3 text-sm">
+              Unsere handgefertigten Tequilas aus 100% blauer Agave
+            </div>
+          </div>
         </div>
         
         <Modal 
