@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, ArrowRight, Check } from "lucide-react";
@@ -170,64 +169,62 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
-      <Card className="border-tequila-dark bg-white shadow-lg overflow-hidden">
-        <div className="bg-tequila-dark text-white px-6 py-4">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">
-              {step === 1 && "Persönliche Daten"}
-              {step === 2 && "Adresse"}
-              {step === 3 && "Produkt Auswahl"}
-              {step === 4 && "Zusammenfassung"}
-            </h2>
-            <div className="text-sm">
-              Schritt {step} von 4
-            </div>
-          </div>
-          <div className="w-full bg-tequila-secondary/30 h-1 mt-4 rounded-full overflow-hidden">
-            <div 
-              className="bg-tequila-primary h-full transition-all duration-300 ease-in-out"
-              style={{ width: `${(step / 4) * 100}%` }}
-            ></div>
+    <div className="w-full">
+      <div className="bg-tequila-dark text-white px-6 py-4">
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl font-semibold">
+            {step === 1 && "Persönliche Daten"}
+            {step === 2 && "Adresse"}
+            {step === 3 && "Produkt Auswahl"}
+            {step === 4 && "Zusammenfassung"}
+          </h2>
+          <div className="text-sm">
+            Schritt {step} von 4
           </div>
         </div>
+        <div className="w-full bg-tequila-secondary/30 h-1 mt-4 rounded-full overflow-hidden">
+          <div 
+            className="bg-tequila-primary h-full transition-all duration-300 ease-in-out"
+            style={{ width: `${(step / 4) * 100}%` }}
+          ></div>
+        </div>
+      </div>
+      
+      <div className="p-6 bg-white animate-fade-in">
+        {renderStep()}
         
-        <CardContent className="p-6 animate-fade-in">
-          {renderStep()}
-          
-          <div className="flex justify-between mt-8">
-            {step > 1 && (
-              <Button 
-                onClick={prevStep}
-                variant="outline"
-                className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10"
-                disabled={isSubmitting}
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Zurück
-              </Button>
-            )}
-            {step < 4 ? (
-              <Button 
-                onClick={nextStep}
-                className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
-              >
-                Weiter
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            ) : (
-              <Button 
-                onClick={handleSubmit}
-                className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}
-                <Check className="ml-2 h-4 w-4" />
-              </Button>
-            )}
-          </div>
-        </CardContent>
-      </Card>
+        <div className="flex justify-between mt-8">
+          {step > 1 && (
+            <Button 
+              onClick={prevStep}
+              variant="outline"
+              className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10"
+              disabled={isSubmitting}
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Zurück
+            </Button>
+          )}
+          {step < 4 ? (
+            <Button 
+              onClick={nextStep}
+              className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
+            >
+              Weiter
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          ) : (
+            <Button 
+              onClick={handleSubmit}
+              className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-white"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}
+              <Check className="ml-2 h-4 w-4" />
+            </Button>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

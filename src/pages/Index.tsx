@@ -36,6 +36,7 @@ const Index = () => {
           isOpen={isWizardOpen} 
           onClose={closeWizard}
           title="Tequila Auswahl"
+          className="bg-transparent"
         >
           <TequilaWizard onComplete={closeWizard} />
         </Modal>
