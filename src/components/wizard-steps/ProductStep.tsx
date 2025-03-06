@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FormData } from '../wizard/types';
 import { Plus, Minus } from "lucide-react";
@@ -50,7 +49,7 @@ const ProductStep: React.FC<ProductStepProps> = ({
   };
   return <div className="space-y-4">
       <div className="text-center mb-6">
-        <h2 className="text-xl sm:text-2xl font-bold text-tequila-primary">Mix Dir die perfekte Paloma im Handumdrehen zuhause!</h2>
+        
       </div>
 
       <div className="space-y-4 pb-4">
