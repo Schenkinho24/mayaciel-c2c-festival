@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import TequilaHeader from '@/components/TequilaHeader';
 import TequilaWizard from '@/components/TequilaWizard';
@@ -12,7 +13,10 @@ const Index = () => {
       
       <main className="flex-1 container px-4 py-8 md:py-12 mx-auto">
         <div className="max-w-4xl mx-auto mb-8 md:mb-12 text-center">
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-tequila-primary mb-3 md:mb-4">Welcome to the Country to Country Festival!</h2>
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-tequila-primary mb-3 md:mb-4">
+            Welcome to the <span className="md:hidden"><br /></span>
+            Country to Country Festival!
+          </h2>
           <p className="text-sm md:text-base text-tequila-dark max-w-2xl mx-auto mb-6 md:mb-8">MAYACIEL Tequila und Country Music passen perfekt zusammen. Mit MAYACIEL holst Du Dir das C2C-Feeling nach Hause!</p>
           
           <Button onClick={openWizard} className="bg-[#411701] hover:bg-[#411701]/90 text-white px-4 md:px-6 rounded-md mb-6 md:mb-8 font-medium py-0 text-sm md:text-base">Deine Tequila Bestellung</Button>
