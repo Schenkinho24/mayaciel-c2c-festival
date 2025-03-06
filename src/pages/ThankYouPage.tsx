@@ -53,7 +53,7 @@ const ThankYouPage: React.FC = () => {
           <div className="space-y-6">
             <div className="rounded-lg p-4 md:p-5 bg-white">
               <div className="mb-2">
-                <h3 className="font-medium text-base md:text-lg text-tequila-primary">Produktauswahl</h3>
+                <h3 className="text-base md:text-lg text-tequila-primary font-bold">Produktauswahl</h3>
               </div>
               <Separator className="my-2 bg-tequila-secondary" />
               {selectedProducts.length > 0 ? <div className="space-y-3">
