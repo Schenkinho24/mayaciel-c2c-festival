@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { FormData } from '../TequilaWizard';
 import { Plus, Minus } from "lucide-react";
@@ -76,7 +75,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className={`font-bold text-tequila-primary ${isSelected ? 'text-tequila-primary' : 'text-tequila-primary/80'}`}>
+                <span className="font-bold text-tequila-primary">
                   {product.name}
                 </span>
                 <span className="ml-auto font-semibold text-tequila-primary">{product.price}</span>
