@@ -16,6 +16,7 @@ const productPrices: {
   "Tequila Reposado": 39.90,
   "Paloma Package": 42.90
 };
+
 const ThankYouPage: React.FC = () => {
   const location = useLocation();
   const formData = location.state?.formData as FormData | undefined;
@@ -36,6 +37,7 @@ const ThankYouPage: React.FC = () => {
   const totalSum = selectedProducts.reduce((sum, product) => {
     return sum + product.price * product.quantity;
   }, 0);
+
   return <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
       <TequilaHeader />
       
@@ -70,7 +72,7 @@ const ThankYouPage: React.FC = () => {
                   
                   <div className="flex justify-between items-center">
                     <span className="text-tequila-dark font-medium text-sm md:text-base">Gesamtsumme:</span>
-                    <div className="flex items-center text-tequila-dark text-small md:text-lg">
+                    <div className="flex items-center text-tequila-dark text-sm md:text-base">
                       {totalSum.toFixed(2)} €
                     </div>
                   </div>
@@ -140,4 +142,5 @@ const ThankYouPage: React.FC = () => {
       </footer>
     </div>;
 };
+
 export default ThankYouPage;
