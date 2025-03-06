@@ -6,11 +6,11 @@ const TequilaHeader = () => {
     <header className="w-full py-8 bg-tequila-primary">
       <div className="container px-4 md:px-6 mx-auto">
         <div className="flex justify-center items-center">
-          <div className="w-full max-w-2xl h-64 rounded-lg overflow-hidden shadow-lg">
+          <div className="w-full max-w-2xl h-64 rounded-lg overflow-hidden shadow-lg bg-tequila-primary flex items-center justify-center">
             <img 
-              src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
+              src="/logo-subline_white.png" 
               alt="Mayaciel Premium Tequila" 
-              className="w-full h-full object-cover"
+              className="max-w-full max-h-full object-contain p-4"
             />
           </div>
         </div>
