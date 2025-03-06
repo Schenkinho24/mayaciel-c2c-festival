@@ -1,5 +1,5 @@
 
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { Button } from './button';
 import { cn } from '@/lib/utils';
@@ -19,6 +19,27 @@ export function Modal({
   title,
   className
 }: ModalProps) {
+  // Add effect to prevent body scrolling when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      
+      // Prevent body scrolling
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      
+      return () => {
+        // Restore scrolling when component unmounts or modal closes
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+  
   if (!isOpen) return null;
   
   return (
