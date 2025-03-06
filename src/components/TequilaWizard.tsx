@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
 import PersonalInfoStep from './wizard-steps/PersonalInfoStep';
 import AddressStep from './wizard-steps/AddressStep';
@@ -20,6 +22,7 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
   const { validateStep } = useWizardValidation();
+  const navigate = useNavigate();
 
   const updateFormData = (data: Partial<FormData>) => {
     setFormData(prev => ({ ...prev, ...data }));
@@ -51,13 +54,14 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
       });
       console.log("Form submitted to database:", formData);
       
+      // Navigate to thank-you page with form data
+      navigate('/thank-you', { state: { formData } });
+      
       setFormData(initialFormData);
       setStep(1);
       
       if (onComplete) {
-        setTimeout(() => {
-          onComplete();
-        }, 1500); // Give time for the user to see the success message
+        onComplete();
       }
     } catch (error) {
       console.error('Error in submit handler:', error);
