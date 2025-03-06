@@ -77,7 +77,7 @@ const ThankYouPage: React.FC = () => {
                 </div> : <p className="text-tequila-dark/70 text-xs md:text-sm">Keine Produkte ausgewählt</p>}
             </div>
 
-            <div className="rounded-lg p-4 md:p-5 bg-tequila-light">
+            <div className="rounded-lg p-4 md:p-5 bg-white">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Persönliche Daten</h3>
               </div>
