@@ -15,9 +15,7 @@ const Index = () => {
           <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-tequila-primary mb-3 md:mb-4">Welcome to the Country to Country Festival!</h2>
           <p className="text-sm md:text-base text-tequila-dark max-w-2xl mx-auto mb-6 md:mb-8">MAYACIEL Tequila und Country Music passen perfekt zusammen. Mit MAYACIEL holst Du Dir das C2C-Feeling nach Hause!</p>
           
-          <Button onClick={openWizard} className="bg-[#411701] hover:bg-[#411701]/90 text-white px-4 md:px-6 rounded-md mb-6 md:mb-8 font-medium py-0 text-sm md:text-base">
-            Hier geht's zur Tequila Bestellung!
-          </Button>
+          <Button onClick={openWizard} className="bg-[#411701] hover:bg-[#411701]/90 text-white px-4 md:px-6 rounded-md mb-6 md:mb-8 font-medium py-0 text-sm md:text-base">Hier geht's zu Deiner Tequila Bestellung!</Button>
           
           <div className="w-full max-w-3xl mx-auto mt-4 rounded-lg overflow-hidden shadow-md">
             <img src="/image_page.jpeg" alt="Premium Tequila" className="w-full h-auto object-cover aspect-video" />
