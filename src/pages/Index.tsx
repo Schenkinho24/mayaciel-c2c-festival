@@ -30,7 +30,7 @@ const Index = () => {
           
           <div className="w-full max-w-3xl mx-auto mt-4 rounded-lg overflow-hidden shadow-md">
             <img 
-              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+              src="/image_page.jpeg" 
               alt="Premium Tequila" 
               className="w-full h-auto object-cover aspect-video" 
             />
