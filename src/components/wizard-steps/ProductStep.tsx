@@ -13,7 +13,7 @@ const products = [
   {
     id: "tequila-blanco",
     name: "Tequila Blanco",
-    description: "Frisch und intensiv mit Noten von Agave und Zitrus.",
+    description: "Blumig. Fruchtig. Zitrusnoten.",
     price: "34,90 €",
   },
   {
