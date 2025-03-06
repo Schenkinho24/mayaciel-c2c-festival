@@ -76,7 +76,9 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
               }`}
             >
               <div className="flex items-center gap-2">
-                <span className={`font-medium ${isSelected ? 'text-tequila-dark' : 'text-tequila-dark/80'}`}>{product.name}</span>
+                <span className={`font-bold text-tequila-primary ${isSelected ? 'text-tequila-primary' : 'text-tequila-primary/80'}`}>
+                  {product.name}
+                </span>
                 <span className="ml-auto font-semibold text-tequila-primary">{product.price}</span>
               </div>
               <p className="text-tequila-dark/80 mt-2">{product.description}</p>
