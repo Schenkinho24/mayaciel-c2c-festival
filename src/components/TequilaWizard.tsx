@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, ArrowRight, Check, Edit } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check } from "lucide-react";
 import PersonalInfoStep from './wizard-steps/PersonalInfoStep';
 import AddressStep from './wizard-steps/AddressStep';
 import ProductStep from './wizard-steps/ProductStep';
@@ -169,8 +169,8 @@ const TequilaWizard = () => {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <Card className="border-tequila-amber bg-white shadow-lg overflow-hidden">
-        <div className="bg-tequila-brown text-white px-6 py-4">
+      <Card className="border-tequila-primary bg-white shadow-lg overflow-hidden">
+        <div className="bg-tequila-dark text-tequila-light px-6 py-4">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">
               {step === 1 && "Persönliche Daten"}
@@ -182,9 +182,9 @@ const TequilaWizard = () => {
               Schritt {step} von 4
             </div>
           </div>
-          <div className="w-full bg-white/20 h-1 mt-4 rounded-full overflow-hidden">
+          <div className="w-full bg-tequila-secondary/30 h-1 mt-4 rounded-full overflow-hidden">
             <div 
-              className="bg-tequila-amber h-full transition-all duration-300 ease-in-out"
+              className="bg-tequila-primary h-full transition-all duration-300 ease-in-out"
               style={{ width: `${(step / 4) * 100}%` }}
             ></div>
           </div>
@@ -198,7 +198,7 @@ const TequilaWizard = () => {
               <Button 
                 onClick={prevStep}
                 variant="outline"
-                className="border-tequila-brown text-tequila-brown hover:bg-tequila-brown/10"
+                className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10"
                 disabled={isSubmitting}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -208,7 +208,7 @@ const TequilaWizard = () => {
             {step < 4 ? (
               <Button 
                 onClick={nextStep}
-                className="ml-auto bg-tequila-brown hover:bg-tequila-brown/90"
+                className="ml-auto bg-tequila-dark hover:bg-tequila-dark/90 text-tequila-light"
               >
                 Weiter
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -216,7 +216,7 @@ const TequilaWizard = () => {
             ) : (
               <Button 
                 onClick={handleSubmit}
-                className="ml-auto bg-tequila-green hover:bg-tequila-green/90"
+                className="ml-auto bg-tequila-primary hover:bg-tequila-primary/90 text-tequila-light"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? "Wird übermittelt..." : "Bestätigen"}

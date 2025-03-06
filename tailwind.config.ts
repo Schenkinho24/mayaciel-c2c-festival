@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,13 +65,14 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom tequila theme colors
+				// Custom tequila theme colors - Updated with the new color scheme
 				tequila: {
-					amber: '#F5A623',
-					green: '#7D9F85',
-					brown: '#3D2C29',
-					lightBrown: '#8B5E3C',
-					neutral: '#F6F6F6',
+					// Replace previous colors with the new scheme
+					primary: '#DE5D02',    // Orange
+					secondary: '#E4DFDB',  // Light gray
+					light: '#F6F2EF',      // Very light cream
+					dark: '#411701',       // Dark brown
+					neutral: '#F6F1ED',    // Off-white
 				}
 			},
 			borderRadius: {

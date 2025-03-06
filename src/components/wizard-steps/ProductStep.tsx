@@ -59,7 +59,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
   return (
     <div className="space-y-4">
       <div className="text-center mb-6">
-        <p className="text-gray-600">Bitte wählen Sie Ihren bevorzugten Tequila und die gewünschte Menge.</p>
+        <p className="text-tequila-dark">Bitte wählen Sie Ihren bevorzugten Tequila und die gewünschte Menge.</p>
       </div>
 
       <div className="space-y-4">
@@ -71,21 +71,21 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
             <div 
               key={product.id}
               className={`border rounded-lg p-4 transition-all ${
-                isSelected ? 'border-2 border-tequila-amber bg-tequila-neutral' : 'border-gray-200'
+                isSelected ? 'border-2 border-tequila-primary bg-tequila-neutral' : 'border-tequila-secondary'
               }`}
             >
               <div className="flex items-center gap-2">
                 <span className="font-medium">{product.name}</span>
-                <span className="ml-auto font-semibold text-tequila-brown">{product.price}</span>
+                <span className="ml-auto font-semibold text-tequila-dark">{product.price}</span>
               </div>
-              <p className="text-gray-600 mt-2">{product.description}</p>
+              <p className="text-tequila-dark/80 mt-2">{product.description}</p>
               
               <div className="flex items-center mt-4">
                 <Button
                   type="button"
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8 rounded-full"
+                  className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark"
                   onClick={() => handleQuantityChange(product.name, -1)}
                   disabled={quantity === 0}
                 >
@@ -99,7 +99,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
                   type="button"
                   variant="outline"
                   size="icon"
-                  className="h-8 w-8 rounded-full"
+                  className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark"
                   onClick={() => handleQuantityChange(product.name, 1)}
                 >
                   <Plus className="h-4 w-4" />
