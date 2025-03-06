@@ -45,7 +45,7 @@ const ThankYouPage: React.FC = () => {
       <div className="bg-tequila-neutral rounded-lg p-6 mb-6">
         <div className="text-center mb-8">
           <h1 className="text-xl md:text-2xl font-bold text-tequila-dark mb-4">Bestellung bestätigt!</h1>
-          <p className="text-sm md:text-base text-tequila-dark/80">
+          <p className="text-sm md:text-base text-tequila-dark/80 break-words">
             Yeehaw! Vielen Dank für Deine Bestellung bei MAYACIEL. Der Tequila geht direkt am Montag in den Versand.
             <br /><br />
             Wir wünschen ganz viel Spaß auf dem C2C-Festival!
@@ -62,8 +62,8 @@ const ThankYouPage: React.FC = () => {
               <div className="space-y-3">
                 {selectedProducts.map(({ name, quantity, price }) => (
                   <div key={name} className="flex justify-between items-center">
-                    <div className="text-tequila-dark/70 text-xs md:text-sm">{name}: {quantity}</div>
-                    <div className="text-tequila-dark font-medium text-xs md:text-sm">{(price * quantity).toFixed(2)} €</div>
+                    <div className="text-tequila-dark/70 text-xs md:text-sm truncate pr-2">{name}: {quantity}</div>
+                    <div className="text-tequila-dark font-medium text-xs md:text-sm whitespace-nowrap">{(price * quantity).toFixed(2)} €</div>
                   </div>
                 ))}
                 
@@ -88,9 +88,9 @@ const ThankYouPage: React.FC = () => {
             <Separator className="my-2 bg-tequila-secondary" />
             <div className="grid grid-cols-2 gap-y-2">
               <span className="text-tequila-dark/70 text-xs md:text-sm">Name:</span>
-              <span className="text-tequila-dark text-xs md:text-sm">{formData.name}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.name}</span>
               <span className="text-tequila-dark/70 text-xs md:text-sm">E-Mail:</span>
-              <span className="text-tequila-dark text-xs md:text-sm">{formData.email}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-all">{formData.email}</span>
             </div>
           </div>
 
@@ -101,13 +101,13 @@ const ThankYouPage: React.FC = () => {
             <Separator className="my-2 bg-tequila-secondary" />
             <div className="grid grid-cols-2 gap-y-2">
               <span className="text-tequila-dark/70 text-xs md:text-sm">Straße:</span>
-              <span className="text-tequila-dark text-xs md:text-sm">{formData.street}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.street}</span>
               <span className="text-tequila-dark/70 text-xs md:text-sm">PLZ:</span>
               <span className="text-tequila-dark text-xs md:text-sm">{formData.zipCode}</span>
               <span className="text-tequila-dark/70 text-xs md:text-sm">Stadt:</span>
-              <span className="text-tequila-dark text-xs md:text-sm">{formData.city}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.city}</span>
               <span className="text-tequila-dark/70 text-xs md:text-sm">Land:</span>
-              <span className="text-tequila-dark text-xs md:text-sm">{formData.country}</span>
+              <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.country}</span>
             </div>
           </div>
         </div>
