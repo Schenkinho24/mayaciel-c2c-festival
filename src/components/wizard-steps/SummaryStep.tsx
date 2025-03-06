@@ -11,11 +11,12 @@ interface SummaryStepProps {
 }
 
 const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
-  // Get the selected product quantity or default to 1 for backward compatibility
-  const selectedProductQuantity = 
-    formData.quantities && formData.quantities[formData.product] 
-      ? formData.quantities[formData.product] 
-      : 1;
+  // Get selected products with quantities
+  const selectedProducts = formData.quantities ? 
+    Object.entries(formData.quantities)
+      .filter(([_, quantity]) => quantity > 0)
+      .map(([productName, quantity]) => ({ name: productName, quantity })) 
+    : [];
 
   return (
     <div className="space-y-6">
@@ -86,12 +87,18 @@ const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {
             </Button>
           </div>
           <Separator className="my-2" />
-          <div className="grid grid-cols-2 gap-y-2">
-            <span className="text-gray-600">Produkt:</span>
-            <span>{formData.product}</span>
-            <span className="text-gray-600">Menge:</span>
-            <span>{selectedProductQuantity} Flaschen</span>
-          </div>
+          {selectedProducts.length > 0 ? (
+            <div className="space-y-2">
+              {selectedProducts.map(({ name, quantity }) => (
+                <div key={name} className="grid grid-cols-2 gap-y-1">
+                  <span className="text-gray-600">{name}:</span>
+                  <span>{quantity} Flaschen</span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-gray-600">Keine Produkte ausgewählt</p>
+          )}
         </div>
       </div>
     </div>

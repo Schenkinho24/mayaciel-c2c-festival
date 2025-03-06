@@ -72,10 +72,14 @@ const TequilaWizard = () => {
         return;
       }
     } else if (step === 3) {
-      if (!formData.product) {
+      // Check if at least one product has a quantity greater than 0
+      const hasSelectedProducts = formData.quantities && 
+        Object.values(formData.quantities).some(quantity => quantity > 0);
+      
+      if (!hasSelectedProducts) {
         toast({
           title: "Keine Auswahl",
-          description: "Bitte wählen Sie ein Produkt aus.",
+          description: "Bitte wählen Sie mindestens ein Produkt aus.",
           variant: "destructive",
         });
         return;

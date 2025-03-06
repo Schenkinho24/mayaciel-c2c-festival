@@ -1,8 +1,6 @@
 
 import React from 'react';
 import { FormData } from '../TequilaWizard';
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
 import { Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -37,7 +35,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
     // Get current quantities or initialize if not present
     const quantities = formData.quantities || {};
     
-    // Calculate new quantity (minimum is 1)
+    // Calculate new quantity (minimum is 0)
     const currentQuantity = quantities[productName] || 0;
     const newQuantity = Math.max(0, currentQuantity + change);
     
@@ -47,23 +45,15 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
       [productName]: newQuantity
     };
     
-    // If quantity becomes 0, set product to empty if it was the selected one
-    if (newQuantity === 0 && formData.product === productName) {
-      updateFormData({ 
-        quantities: updatedQuantities,
-        product: ''
-      });
-    } else {
-      // If increasing quantity from 0 to 1 and no product selected yet, select this one
-      if (currentQuantity === 0 && newQuantity === 1 && !formData.product) {
-        updateFormData({ 
-          quantities: updatedQuantities,
-          product: productName
-        });
-      } else {
-        updateFormData({ quantities: updatedQuantities });
-      }
-    }
+    // Update the formData with the new quantities
+    updateFormData({ quantities: updatedQuantities });
+    
+    // Set the product field to a comma-separated list of products with quantities > 0
+    const selectedProducts = Object.entries(updatedQuantities)
+      .filter(([_, qty]) => qty > 0)
+      .map(([name, _]) => name);
+    
+    updateFormData({ product: selectedProducts.join(", ") });
   };
 
   return (
@@ -72,47 +62,31 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
         <p className="text-gray-600">Bitte wählen Sie Ihren bevorzugten Tequila und die gewünschte Menge.</p>
       </div>
 
-      <RadioGroup 
-        value={formData.product} 
-        onValueChange={(value) => updateFormData({ product: value })}
-        className="space-y-4"
-      >
+      <div className="space-y-4">
         {products.map((product) => {
           const quantity = (formData.quantities && formData.quantities[product.name]) || 0;
+          const isSelected = quantity > 0;
           
           return (
             <div 
               key={product.id}
-              className={`border rounded-lg p-4 transition-all hover:border-tequila-amber cursor-pointer ${
-                formData.product === product.name ? 'border-2 border-tequila-amber bg-tequila-neutral' : 'border-gray-200'
+              className={`border rounded-lg p-4 transition-all ${
+                isSelected ? 'border-2 border-tequila-amber bg-tequila-neutral' : 'border-gray-200'
               }`}
-              onClick={() => {
-                if (!formData.product || formData.product !== product.name) {
-                  // If no quantity yet, set to 1
-                  if (quantity === 0) {
-                    handleQuantityChange(product.name, 1);
-                  }
-                  updateFormData({ product: product.name });
-                }
-              }}
             >
               <div className="flex items-center gap-2">
-                <RadioGroupItem value={product.name} id={product.id} />
-                <Label htmlFor={product.id} className="font-medium cursor-pointer">{product.name}</Label>
+                <span className="font-medium">{product.name}</span>
                 <span className="ml-auto font-semibold text-tequila-brown">{product.price}</span>
               </div>
-              <p className="text-gray-600 mt-2 ml-6">{product.description}</p>
+              <p className="text-gray-600 mt-2">{product.description}</p>
               
-              <div className="flex items-center mt-4 ml-6">
+              <div className="flex items-center mt-4">
                 <Button
                   type="button"
                   variant="outline"
                   size="icon"
                   className="h-8 w-8 rounded-full"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleQuantityChange(product.name, -1);
-                  }}
+                  onClick={() => handleQuantityChange(product.name, -1)}
                   disabled={quantity === 0}
                 >
                   <Minus className="h-4 w-4" />
@@ -126,10 +100,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
                   variant="outline"
                   size="icon"
                   className="h-8 w-8 rounded-full"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleQuantityChange(product.name, 1);
-                  }}
+                  onClick={() => handleQuantityChange(product.name, 1)}
                 >
                   <Plus className="h-4 w-4" />
                   <span className="sr-only">Erhöhen</span>
@@ -138,7 +109,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
             </div>
           );
         })}
-      </RadioGroup>
+      </div>
     </div>
   );
 };
