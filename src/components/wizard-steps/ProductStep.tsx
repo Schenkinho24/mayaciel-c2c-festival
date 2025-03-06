@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FormData } from '../TequilaWizard';
 import { Plus, Minus } from "lucide-react";
@@ -57,24 +58,39 @@ const ProductStep: React.FC<ProductStepProps> = ({
         {products.map(product => {
         const quantity = formData.quantities && formData.quantities[product.name] || 0;
         const isSelected = quantity > 0;
-        return <div key={product.id} className={`border rounded-lg p-4 transition-all ${isSelected ? 'border-2 border-tequila-dark bg-tequila-neutral' : 'border-tequila-secondary'}`}>
-              <div className="flex items-center gap-2">
+        return <div key={product.id} className={`border rounded-lg p-3 sm:p-4 transition-all ${isSelected ? 'border-2 border-tequila-dark bg-tequila-neutral' : 'border-tequila-secondary'}`}>
+              <div className="flex flex-wrap sm:flex-nowrap items-center gap-2">
                 <span className="font-bold text-tequila-primary">
                   {product.name}
                 </span>
                 <span className="ml-auto font-semibold text-tequila-primary">{product.price}</span>
               </div>
-              <p className="text-tequila-dark/80 mt-2">{product.description}</p>
+              <p className="text-tequila-dark/80 mt-2 whitespace-pre-line text-sm sm:text-base">{product.description}</p>
               
               <div className="flex items-center mt-4">
-                <Button type="button" variant="outline" size="icon" className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark" onClick={() => handleQuantityChange(product.name, -1)} disabled={quantity === 0}>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="icon" 
+                  className="h-9 w-9 sm:h-8 sm:w-8 rounded-full border-tequila-dark text-tequila-dark touch-manipulation" 
+                  onClick={() => handleQuantityChange(product.name, -1)} 
+                  disabled={quantity === 0}
+                  aria-label="Reduzieren"
+                >
                   <Minus className="h-4 w-4" />
                   <span className="sr-only">Reduzieren</span>
                 </Button>
                 
-                <span className="mx-4 font-medium w-8 text-center">{quantity}</span>
+                <span className="mx-3 sm:mx-4 font-medium w-8 text-center">{quantity}</span>
                 
-                <Button type="button" variant="outline" size="icon" className="h-8 w-8 rounded-full border-tequila-dark text-tequila-dark" onClick={() => handleQuantityChange(product.name, 1)}>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  size="icon" 
+                  className="h-9 w-9 sm:h-8 sm:w-8 rounded-full border-tequila-dark text-tequila-dark touch-manipulation" 
+                  onClick={() => handleQuantityChange(product.name, 1)}
+                  aria-label="Erhöhen"
+                >
                   <Plus className="h-4 w-4" />
                   <span className="sr-only">Erhöhen</span>
                 </Button>

@@ -94,6 +94,26 @@
     @apply bg-background text-foreground font-sans;
     font-family: univers, Helvetica, Arial, sans-serif;
   }
+  
+  /* Improve touch interactions */
+  @media (pointer: coarse) {
+    button, 
+    [role="button"],
+    .interactive-element {
+      @apply min-h-[44px] min-w-[44px];
+    }
+  }
+  
+  /* Fix for mobile viewport */
+  html, body {
+    @apply overscroll-none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Touch optimization */
+  .touch-manipulation {
+    touch-action: manipulation;
+  }
 }
 
 /* Add animation keyframes for modal */
