@@ -12,9 +12,7 @@ const Index = () => {
       
       <main className="flex-1 container px-4 py-12 mx-auto">
         <div className="max-w-4xl mx-auto mb-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-tequila-primary mb-4">
-            Wählen Sie Ihren Premium Tequila
-          </h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-tequila-primary mb-4">Welcome to the Country to Country Festival!</h2>
           <p className="text-tequila-dark max-w-2xl mx-auto mb-8">
             Entdecken Sie unsere exklusive Kollektion von Premium Tequilas und beginnen Sie Ihren persönlichen Geschmacksweg.
           </p>
