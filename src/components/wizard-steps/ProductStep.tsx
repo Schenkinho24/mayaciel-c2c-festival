@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { FormData } from '../TequilaWizard';
 import { Plus, Minus } from "lucide-react";
@@ -13,25 +14,25 @@ const products = [
     id: "tequila-blanco",
     name: "Tequila Blanco",
     description: "Frisch und intensiv mit Noten von Agave und Zitrus.",
-    price: "39,99 €",
+    price: "34,90 €",
   },
   {
     id: "tequila-rosa",
     name: "Tequila Rosa",
     description: "Harmonisch mit fruchtigen Aromen und sanfter Süße.",
-    price: "44,99 €",
+    price: "36,90 €",
   },
   {
     id: "tequila-reposado",
     name: "Tequila Reposado",
     description: "Ausgereift mit Vanille- und Eichennoten, samtig im Abgang.",
-    price: "49,99 €",
+    price: "39,90 €",
   },
   {
     id: "paloma-package",
     name: "Paloma Package",
     description: "Vollmundig und komplex mit Karamell- und Gewürznoten.",
-    price: "59,99 €",
+    price: "42,90 €",
   },
 ];
 
