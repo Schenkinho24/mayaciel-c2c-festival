@@ -33,7 +33,7 @@ export function Modal({
       <div className="fixed inset-0 flex items-center justify-center z-50 p-4 animate-scale-in">
         <div 
           className={cn(
-            "rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-hidden animate-enter", 
+            "rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] bg-white flex flex-col overflow-hidden animate-enter", 
             className
           )}
           onClick={(e) => e.stopPropagation()}
@@ -49,7 +49,7 @@ export function Modal({
             <span className="sr-only">Schließen</span>
           </Button>
           
-          <div className="overflow-auto">
+          <div className="flex-1 overflow-y-auto">
             {children}
           </div>
         </div>

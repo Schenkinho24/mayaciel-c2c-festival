@@ -28,6 +28,19 @@ const products = [
     description: "Ausgereift mit Vanille- und Eichennoten, samtig im Abgang.",
     price: "49,99 €",
   },
+  // Adding more product items to test scrolling
+  {
+    id: "tequila-anejo",
+    name: "Tequila Añejo",
+    description: "Vollmundig und komplex mit Karamell- und Gewürznoten.",
+    price: "59,99 €",
+  },
+  {
+    id: "tequila-extra-anejo",
+    name: "Tequila Extra Añejo",
+    description: "Luxuriös mit tiefen Holznoten und samtiger Textur.",
+    price: "89,99 €",
+  },
 ];
 
 const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) => {
@@ -62,7 +75,7 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
         <p className="text-tequila-dark">Bitte wählen Sie Ihren bevorzugten Tequila und die gewünschte Menge.</p>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 pb-4">
         {products.map((product) => {
           const quantity = (formData.quantities && formData.quantities[product.name]) || 0;
           const isSelected = quantity > 0;
@@ -112,6 +125,6 @@ const ProductStep: React.FC<ProductStepProps> = ({ formData, updateFormData }) =
       </div>
     </div>
   );
-};
+}
 
 export default ProductStep;
