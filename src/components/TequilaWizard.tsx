@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
@@ -179,7 +180,8 @@ const TequilaWizard: React.FC<TequilaWizardProps> = ({ onComplete }) => {
             {step === 4 && "Zusammenfassung"}
           </h2>
           <div className="text-sm">
-            Schritt {step} von 4
+            <span className="block sm:inline">Schritt</span>{' '}
+            <span className="block sm:inline">{step} von 4</span>
           </div>
         </div>
         <div className="w-full bg-tequila-secondary/30 h-1 mt-4 rounded-full overflow-hidden">
