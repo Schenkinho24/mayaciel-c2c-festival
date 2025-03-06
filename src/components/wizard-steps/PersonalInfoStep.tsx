@@ -1,11 +1,13 @@
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FormData } from '../TequilaWizard';
+import { FormData } from '../wizard/types';
+
 interface PersonalInfoStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
+
 const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
   formData,
   updateFormData
@@ -32,4 +34,5 @@ const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
       </div>
     </div>;
 };
+
 export default PersonalInfoStep;

@@ -1,12 +1,13 @@
-
 import React from 'react';
-import { FormData } from '../TequilaWizard';
+import { FormData } from '../wizard/types';
 import { Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
 interface ProductStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
+
 const products = [{
   id: "tequila-blanco",
   name: "Tequila Blanco",

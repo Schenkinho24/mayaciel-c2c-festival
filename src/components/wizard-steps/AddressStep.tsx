@@ -1,11 +1,13 @@
 import React from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { FormData } from '../TequilaWizard';
+import { FormData } from '../wizard/types';
+
 interface AddressStepProps {
   formData: FormData;
   updateFormData: (data: Partial<FormData>) => void;
 }
+
 const AddressStep: React.FC<AddressStepProps> = ({
   formData,
   updateFormData
@@ -49,4 +51,5 @@ const AddressStep: React.FC<AddressStepProps> = ({
       </div>
     </div>;
 };
+
 export default AddressStep;

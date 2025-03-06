@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FormData } from '../TequilaWizard';
+import { FormData } from '../wizard/types';
 import { Edit, EuroIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
