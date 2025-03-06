@@ -119,7 +119,7 @@ const ThankYouPage: React.FC = () => {
 
           <div className="mt-8 text-center">
             <Link to="/">
-              <Button variant="outline" className="border-tequila-dark text-tequila-dark hover:bg-tequila-dark/10 text-xs md:text-sm">
+              <Button variant="outline" className="border-tequila-dark text-xs md:text-sm bg-tequila-dark text-white">
                 <ChevronLeft className="mr-2 h-4 w-4" />
                 Zurück zur Startseite
               </Button>
