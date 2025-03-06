@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import { ChevronLeft } from 'lucide-react';
@@ -17,7 +16,6 @@ const productPrices: {
   "Tequila Reposado": 39.90,
   "Paloma Package": 42.90
 };
-
 const ThankYouPage: React.FC = () => {
   const location = useLocation();
   const formData = location.state?.formData as FormData | undefined;
@@ -38,9 +36,7 @@ const ThankYouPage: React.FC = () => {
   const totalSum = selectedProducts.reduce((sum, product) => {
     return sum + product.price * product.quantity;
   }, 0);
-  
-  return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
+  return <div className="min-h-screen bg-gradient-to-b from-white to-tequila-neutral flex flex-col">
       <TequilaHeader />
       
       <main className="flex-1 container px-4 py-8 md:py-12 mx-auto">
@@ -60,14 +56,15 @@ const ThankYouPage: React.FC = () => {
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Produktauswahl</h3>
               </div>
               <Separator className="my-2 bg-tequila-secondary" />
-              {selectedProducts.length > 0 ? (
-                <div className="space-y-3">
-                  {selectedProducts.map(({ name, quantity, price }) => (
-                    <div key={name} className="flex justify-between items-center">
+              {selectedProducts.length > 0 ? <div className="space-y-3">
+                  {selectedProducts.map(({
+                name,
+                quantity,
+                price
+              }) => <div key={name} className="flex justify-between items-center">
                       <div className="text-tequila-dark/70 text-xs md:text-sm truncate pr-2">{name}: {quantity}</div>
                       <div className="text-tequila-dark font-medium text-xs md:text-sm whitespace-nowrap">{(price * quantity).toFixed(2)} €</div>
-                    </div>
-                  ))}
+                    </div>)}
                   
                   <Separator className="my-3 bg-tequila-secondary" />
                   
@@ -77,13 +74,10 @@ const ThankYouPage: React.FC = () => {
                       {totalSum.toFixed(2)} €
                     </div>
                   </div>
-                </div>
-              ) : (
-                <p className="text-tequila-dark/70 text-xs md:text-sm">Keine Produkte ausgewählt</p>
-              )}
+                </div> : <p className="text-tequila-dark/70 text-xs md:text-sm">Keine Produkte ausgewählt</p>}
             </div>
 
-            <div className="bg-tequila-neutral rounded-lg p-4 md:p-5">
+            <div className="rounded-lg p-4 md:p-5 bg-tequila-light">
               <div className="mb-2">
                 <h3 className="font-medium text-base md:text-lg text-tequila-dark">Persönliche Daten</h3>
               </div>
@@ -93,13 +87,13 @@ const ThankYouPage: React.FC = () => {
                 <span className="text-tequila-dark text-xs md:text-sm break-words">{formData.name}</span>
                 <span className="text-tequila-dark/70 text-xs md:text-sm">E-Mail:</span>
                 <span className="text-tequila-dark text-xs md:text-sm break-words" style={{
-                  wordBreak: 'break-all',
-                  overflowWrap: 'break-word',
-                  WebkitHyphens: 'auto',
-                  msHyphens: 'auto',
-                  hyphens: 'auto',
-                  maxWidth: '100%'
-                }}>
+                wordBreak: 'break-all',
+                overflowWrap: 'break-word',
+                WebkitHyphens: 'auto',
+                msHyphens: 'auto',
+                hyphens: 'auto',
+                maxWidth: '100%'
+              }}>
                   {formData.email}
                 </span>
               </div>
@@ -144,8 +138,6 @@ const ThankYouPage: React.FC = () => {
           </p>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default ThankYouPage;
