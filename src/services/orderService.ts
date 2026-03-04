@@ -21,6 +21,22 @@ export async function submitOrder(formData: FormData) {
     console.error('Error saving order:', error);
     throw new Error('Failed to submit order');
   }
+
+  // Send confirmation email (non-blocking)
+  try {
+    const projectId = import.meta.env.VITE_SUPABASE_PROJECT_ID;
+    await fetch(
+      `https://${projectId}.supabase.co/functions/v1/send-order-confirmation`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData),
+      }
+    );
+  } catch (emailError) {
+    console.error('Error sending confirmation email:', emailError);
+    // Don't throw — order was saved successfully
+  }
   
   return orderData;
 }
