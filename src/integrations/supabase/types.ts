@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      tequila_orders: {
+        Row: {
+          city: string
+          country: string
+          created_at: string | null
+          email: string
+          id: string
+          name: string
+          products: Json | null
+          street: string
+          zipcode: string
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string | null
+          email: string
+          id?: string
+          name: string
+          products?: Json | null
+          street: string
+          zipcode: string
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string | null
+          email?: string
+          id?: string
+          name?: string
+          products?: Json | null
+          street?: string
+          zipcode?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
