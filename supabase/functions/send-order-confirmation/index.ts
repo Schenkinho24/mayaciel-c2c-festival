@@ -55,8 +55,8 @@ function buildEmailHtml(order: OrderData): string {
 <body style="margin:0;padding:0;background:#ffffff;font-family:univers,Helvetica,Arial,sans-serif;">
   <div style="max-width:600px;margin:0 auto;padding:20px;">
     <div style="background:#DE5D02;padding:24px;text-align:center;border-radius:8px 8px 0 0;">
-      <h1 style="color:#ffffff;margin:0;font-size:22px;letter-spacing:2px;">MAYACIEL</h1>
-      <p style="color:#F6F2EF;margin:8px 0 0;font-size:14px;">Bestellbestätigung</p>
+      <img src="https://mayaciel-c2c-festival.lovable.app/logo-subline_white.png" alt="Mayaciel Premium Tequila" style="max-width:280px;height:auto;margin:0 auto;" />
+      <p style="color:#F6F2EF;margin:12px 0 0;font-size:14px;">Bestellbestätigung</p>
     </div>
     
     <div style="background:#ffffff;padding:24px;border:1px solid #E4DFDB;border-top:none;">
