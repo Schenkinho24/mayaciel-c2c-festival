@@ -14,7 +14,8 @@ const productPrices: {
   "Tequila Blanco": 34.90,
   "Tequila Rosa": 36.90,
   "Tequila Reposado": 39.90,
-  "Paloma Package": 42.90
+  "Paloma Package": 42.90,
+  "Margarita Spritz": 25.90
 };
 
 const ThankYouPage: React.FC = () => {

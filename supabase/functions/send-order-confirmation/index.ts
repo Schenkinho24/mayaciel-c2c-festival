@@ -21,6 +21,7 @@ const productPrices: Record<string, number> = {
   "Tequila Rosa": 36.9,
   "Tequila Reposado": 39.9,
   "Paloma Package": 42.9,
+  "Margarita Spritz": 25.9,
 };
 
 function buildEmailHtml(order: OrderData): string {
