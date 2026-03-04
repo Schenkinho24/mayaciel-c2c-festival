@@ -16,6 +16,7 @@ const productPrices: { [key: string]: number } = {
   "Tequila Rosa": 36.90,
   "Tequila Reposado": 39.90,
   "Paloma Package": 42.90,
+  "Margarita Spritz": 25.90,
 };
 
 const SummaryStep: React.FC<SummaryStepProps> = ({ formData, onEdit }) => {

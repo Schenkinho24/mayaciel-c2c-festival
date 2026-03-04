@@ -26,6 +26,11 @@ const products = [{
   name: "Paloma Package",
   description: "Mix Dir die perfekte Paloma im Handumdrehen zuhause!",
   price: "42,90 €"
+}, {
+  id: "margarita-spritz",
+  name: "Margarita Spritz",
+  description: "Der Spritz, den die Margarita verdient.",
+  price: "25,90 €"
 }];
 const ProductStep: React.FC<ProductStepProps> = ({
   formData,
